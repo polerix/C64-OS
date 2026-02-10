@@ -15,55 +15,66 @@ This system bridges the gap between the classic 8-bit user experience and the mo
 
 ---
 
-## 2. SYSTEM STARTING PROCEDURE
+## 2. INSTALLATION
 
-Once the installation script is executed, your system will automatically initialize into the **C64-OS** environment upon every login.
+To deploy the C64-OS kernel on a Raspberry Pi 5:
 
-1. **COLOR DISPLAY:** The screen will transition to the classic 16-color "Light Blue on Dark Blue" palette.
-2. **CURSOR:** The standard line cursor is replaced by the authentic **BLOCK CURSOR**.
-3. **GEMINI INTERFACE:** The system performs a handshake with the Gemini 2.0 Flash-Lite model via the `/usr/local/bin/gemini-pi` bridge.
+```bash
+git clone https://github.com/polerix/C64-OS.git
+cd C64-OS
+chmod +x install.sh
+./install.sh
+```
+
+**What the Installer Does:**
+*   Installs dependencies: `vice`, `python3-requests`, `shellinabox`, `tmux`, `plymouth`, `fbi`.
+*   Secures your Gemini API Key in `~/.gemini_key`.
+*   Deploys the **C64 Kiosk Server** and **AI Bridge**.
+*   Configures the system for the Waveshare 3.5" v1 Display (SPI timing fixes).
+*   Configures `shellinabox` to provide a web-based terminal.
 
 ---
 
-## 3. KEYBOARD COMMANDS
+## 3. KIOSK MODE & WEB INTERFACE
 
-The C64-OS supports several high-level BASIC-style commands. Note: All commands should be entered in **UPPERCASE** for maximum authenticity.
+The heart of the C64-OS experience is the **Kiosk Dashboard**, accessible by running `./c64_dash.sh` (or auto-starting it). It features a retro-styled Tabbed Interface:
+
+### TAB 1: TERMINAL VIEW (ShellInABox)
+A live, interactive terminal session embedded directly in the dashboard.
+*   **Authentic Visuals**: Implements the correct C64 Color Palette (Blue/Light Blue) via `.bashrc` injection.
+*   **Border Emulation**: Wraps the shell in a 7-pane `tmux` layout to simulate the classic C64 border.
+
+### TAB 2: CONTROL PANEL
+A graphical configuration menu for the system.
+*   **AI Configuration**: Select your AI provider (Gemini Default) and securely save API keys.
+*   **Visual Theme**: Toggle between Classic Blue, Matrix Green, and Amber themes.
+*   **Command Editor**: Map custom keywords to shell commands.
+
+---
+
+## 4. KEYBOARD COMMANDS
+
+The C64-OS supports several high-level BASIC-style commands in the terminal (ensure standard caps lock is NOT required, but commands are stylized in uppercase).
 
 ### LOAD "NAME"
-
-The `LOAD` command is used to retrieve data or activate system modules.
-
 * `LOAD "GEMINI"` : Initializes a real-time conversational session with the onboard AI.
 * `LOAD "C64"`    : Fires the VICE Emulator for cycle-exact 1982 software execution.
 
 ### LIST
-
-Unlike the original BASIC `LIST`, this command uses the AI to scan your current storage blocks. It will provide a natural language summary of your most recently modified files and programs.
+Analyzes the "Storage Map" using Gemini AI. It provides a natural language summary of your most recently modified files.
 
 ### SAVE "DESCRIPTION"
-
-To save a new program, simply describe it. The AI will:
-
-1. Calculate an 8-character filename.
-2. Generate a BASIC `REM` header.
-3. Initialize the file and open the editor.
-
----
-
-## 4. TROUBLESHOOTING (ERROR MESSAGES)
-
-* **?DEVICE NOT PRESENT ERROR** : Check your internet connection. The Gemini AI requires a link to the mainframe.
-* **?FILE NOT FOUND ERROR** : You have attempted to `LOAD` a module not recognized by the kernel.
-* **RESOURCES EXHAUSTED** : You have exceeded your daily quota of "Thinking" units. Wait 60 seconds for the capacitors to recharge.
+Describe a script, and the AI will calculate an 8-character filename, generate a `REM` header, and open the editor for you.
 
 ---
 
 ## 5. TECHNICAL SPECIFICATIONS
 
-* **BRAIN:** Google Gemini 2.0 Flash-Lite (Cloud-Integrated)
+* **BRAIN:** Google Gemini 2.0 Flash-Lite (via Python Bridge)
 * **HEART:** Raspberry Pi 5 Model B (8GB RAM)
-* **STORAGE:** Simulated 1541 Disk Drive (Linux Filesystem)
-* **DISPLAY:** ANSI/VT100 Emulation
+* **INTERFACE:** HTML5 Kiosk with Python `http.server` Backend
+* **TERMINAL:** `shellinabox` with `tmux` Border Emulation
+* **DISPLAY:** Supports HDMI & Waveshare SPI Screens
 
 ---
 
