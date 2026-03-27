@@ -1,4 +1,4 @@
-# 🌊 **** C64-OS USER'S GUIDE **** 🌊
+# 🌊 **** c64-os USER'S GUIDE **** 🌊
 
 ### 🐚 FOR THE RASPBERRY PI 5 COMPUTING SYSTEM 🐚
 
@@ -9,7 +9,7 @@
 
 ## 🌊 1. INTRODUCTION
 
-Congratulations! You have just surfaced with the **C64-OS**, a sophisticated software overlay designed to transform your high-performance Raspberry Pi 5 into a fully functional, AI-enhanced Commodore 64 environment. 💧
+Congratulations! You have just surfaced with the **c64-os**, a sophisticated software overlay designed to transform your high-performance Raspberry Pi 5 into a fully functional, AI-enhanced Commodore 64 environment. 💧
 
 This system bridges the gap between the classic 8-bit user experience and the modern era of Generative Artificial Intelligence, flowing seamlessly between eras.
 
@@ -17,11 +17,11 @@ This system bridges the gap between the classic 8-bit user experience and the mo
 
 ## 🐚 2. INSTALLATION
 
-To deploy the C64-OS kernel on a Raspberry Pi 5, follow the stream:
+To deploy the c64-os kernel on a Raspberry Pi 5, follow the stream:
 
 ```bash
-git clone https://github.com/polerix/C64-OS.git
-cd C64-OS
+git clone https://github.com/polerix/c64-os.git
+cd c64-os
 chmod +x install.sh
 ./install.sh
 ```
@@ -37,7 +37,7 @@ chmod +x install.sh
 
 ## 💧 3. KIOSK MODE & WEB INTERFACE
 
-The heart of the C64-OS experience is the **Kiosk Dashboard**, accessible by running `./c64_dash.sh` (or auto-starting it). It features a retro-styled Tabbed Interface that flows with ease:
+The heart of the c64-os experience is the **Kiosk Dashboard**, accessible by running `./c64_dash.sh` (or auto-starting it). It features a retro-styled Tabbed Interface that flows with ease:
 
 ### 🫧 TAB 1: TERMINAL VIEW (ShellInABox)
 A live, interactive terminal session embedded directly in the dashboard.
@@ -54,7 +54,7 @@ A graphical configuration menu for the system.
 
 ## 🌊 4. KEYBOARD COMMANDS
 
-The C64-OS supports several high-level BASIC-style commands in the terminal (ensure standard caps lock is NOT required, but commands are stylized in uppercase). 💧
+The c64-os supports several high-level BASIC-style commands in the terminal (ensure standard caps lock is NOT required, but commands are stylized in uppercase). 💧
 
 ### 🐚 LOAD "NAME"
 * `LOAD "GEMINI"` : Initializes a real-time conversational session with the onboard AI.

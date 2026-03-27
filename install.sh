@@ -1,11 +1,11 @@
 #!/bin/bash
-# --- C64-OS SYSTEM INSTALLER v4 ---
+# --- c64-os SYSTEM INSTALLER v4 ---
 # REM: PORTABLE KERNEL SETUP FOR PI 5 + WAVESHARE V1 + KIOSK
 # AUTHOR: POLERIX & GEMINI COLLABORATIVE
 
 echo -e "\e[48;5;17m\e[38;5;147m"
 echo "****************************************"
-echo "* C64-OS COMPLETE SYSTEM INSTALLATION  *"
+echo "* c64-os COMPLETE SYSTEM INSTALLATION  *"
 echo "****************************************"
 
 # 1. DEPENDENCY CHECK & INSTALLATION
@@ -85,7 +85,7 @@ if grep -q "Raspberry Pi 5" /proc/device-tree/model 2>/dev/null; then
     if ! grep -q "piscreen" /boot/firmware/config.txt; then
         sudo tee -a /boot/firmware/config.txt <<EOF
 
-# --- C64-OS WAVESHARE V1 FIX ---
+# --- c64-os WAVESHARE V1 FIX ---
 dtparam=spi=on
 dtoverlay=piscreen,speed=16000000,rotate=270,drm
 EOF
@@ -140,7 +140,7 @@ switch() {
 }
 alias SWITCH='switch'
 
-# --- C64-OS PALETTE & VISUALS ---
+# --- c64-os PALETTE & VISUALS ---
 if [ "$TERM" = "linux" ]; then
     # Custom Palette (C64 Light/Dark Blue) - from nickbild/pi-64
     echo -en "\e]P0000000" # BLACK (Background)
@@ -171,7 +171,7 @@ if [[ "$TERM" == "xterm" || "$TERM" == "xterm-color" ]] && [[ -z "$TMUX" ]]; the
    alias c64="$HOME/c64-os/c64_tmux.sh"
 fi
 
-# --- C64-OS CORE ENGINE ---
+# --- c64-os CORE ENGINE ---
 
 # LOAD: Launch Gemini or Emulators
 load() {

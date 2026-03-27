@@ -1,5 +1,5 @@
 #!/bin/bash
-# C64-OS SPLASH SCREEN LOADER
+# c64-os SPLASH SCREEN LOADER
 # USES FBI TO RENDER DIRECTLY TO FRAMEBUFFER
 
 SPLASH_IMG="$(dirname "$0")/Pictures/commodoreblank.png"

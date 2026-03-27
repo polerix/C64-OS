@@ -1,5 +1,5 @@
 #!/bin/bash
-# c64_tmux.sh - Launches C64-OS with Border
+# c64_tmux.sh - Launches c64-os with Border
 # Based on nickbild/pi-64
 
 SESSION="c64"
@@ -59,7 +59,7 @@ done
 # Select Main Pane (2) and clear
 tmux select-pane -t $SESSION:0.2
 tmux send-keys -t $SESSION:0.2 "clear" Enter
-tmux send-keys -t $SESSION:0.2 "echo '**** C64-OS READY ****'" Enter
+tmux send-keys -t $SESSION:0.2 "echo '**** c64-os READY ****'" Enter
 
 # Attach
 tmux attach-session -t $SESSION

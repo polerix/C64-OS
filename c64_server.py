@@ -114,7 +114,7 @@ if __name__ == "__main__":
     #    os.chdir(web_dir)
         
     with socketserver.TCPServer(("", PORT), C64RequestHandler) as httpd:
-        print(f"Serving C64-OS Kiosk on port {PORT}")
+        print(f"Serving c64-os Kiosk on port {PORT}")
         try:
             httpd.serve_forever()
         except KeyboardInterrupt:
